@@ -1,0 +1,87 @@
+﻿@model MVC5Course.Models.IndexViewModel
+@{
+    ViewBag.Title = "管理";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>變更帳戶設定</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>密碼:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("變更密碼", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("建立", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>外部登入:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("管理", "ManageLogins") ]
+        </dd>
+        @*
+            電話號碼可以當做雙因素驗證系統中的第二個驗證因素。
+             
+             請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>
+                以了解設定此 ASP.NET 應用程式以支援使用 SMS 進行雙因素驗證的詳細資料。
+             
+            雙因素驗證設定完成之後，請取消註解以下區塊
+        *@
+        @*  
+            <dt>電話號碼:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                }
+            </dd>
+        *@
+        <dt>雙因素驗證:</dt>
+        <dd>
+            <p>
+                並未設定雙因素驗證提供者。請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>
+                以了解設定此 ASP.NET 應用程式以支援雙因素驗證的詳細資料。
+            </p>
+            @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>已啟用
+                        <input type="submit" value="停用" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>已停用
+                        <input type="submit" value="啟用" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+        </dd>
+    </dl>
+</div>
