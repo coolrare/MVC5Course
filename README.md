@@ -35,8 +35,7 @@
 * SQL Server Data Tools (SSDT) LocalDB (SQL Server 13.0.2151)
 	* 伺服器名稱: **``(localdb)\ProjectsV13``**
 * LocalDB 各版本示意圖
-<br>
-  ![image](https://cloud.githubusercontent.com/assets/88981/23688176/c0cf8f1a-03ed-11e7-85ee-9d31bdb1d8ae.png)
+<br>![image](https://cloud.githubusercontent.com/assets/88981/23688176/c0cf8f1a-03ed-11e7-85ee-9d31bdb1d8ae.png)
 
 
 
